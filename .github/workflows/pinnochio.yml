@@ -35,15 +35,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Pinnochio setup
         run: |
-          sudo apt install -qqy git 
-          echo hello0
-          sudo apt install -qqy libeigen3-dev libboost-all-dev
-          echo hello1
+          sudo apt install -qqy git libeigen3-dev libboost-all-dev liburdfdom-dev
           git clone --recursive https://github.com/stack-of-tasks/pinocchio
-          echo hello2
           cd pinocchio && mkdir build && cd build
           echo hello3
-          cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local
+          cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DPYTHON_EXECUTABLE=/usr/bin/python3
           echo hello4
           make -j4
           echo hello5
