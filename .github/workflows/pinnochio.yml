@@ -35,7 +35,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Pinnochio setup
         run: |
-          sudo apt install -qqy git libeigen3-dev libboost-all-dev liburdfdom-dev
+          sudo apt install -qqy git libeigen3-dev libboost-all-dev liburdfdom-dev curl
+          sudo sh -c "echo 'deb [arch=amd64] http://robotpkg.openrobots.org/packages/debian/pub $(lsb_release -cs) robotpkg' >> /etc/apt/sources.list.d/robotpkg.list"
+          curl http://robotpkg.openrobots.org/packages/debian/robotpkg.key | sudo apt-key add -
+          sudo apt-get update
+          sudo apt install robotpkg-py35-eigenpy
           git clone --recursive https://github.com/stack-of-tasks/pinocchio
           cd pinocchio && mkdir build && cd build
           echo hello3
