@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 env:
-  CMAKE_PREFIX_PATH: /opt/openrobots:$CMAKE_PREFIX_PATH
+  CMAKE_PREFIX_PATH=/usr/local:$CMAKE_PREFIX_PATH
 
 defaults:
   run:
@@ -49,3 +49,12 @@ jobs:
           echo hello5
           sudo make install
   
+      - name: Pinnochio test
+        working-directory: ./test_install_pinocchio/
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
+          ls
+          ./check_pinnochio_version
