@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 env:
-  CMAKE_PREFIX_PATH: /usr/local:$CMAKE_PREFIX_PATH
+  CMAKE_PREFIX_PATH: /opt/openrobots:/usr/local:$CMAKE_PREFIX_PATH
 
 defaults:
   run:
