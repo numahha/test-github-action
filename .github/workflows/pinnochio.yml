@@ -41,7 +41,9 @@ jobs:
           sudo apt-get update
           sudo apt install robotpkg-py310-eigenpy
           git clone --recursive https://github.com/stack-of-tasks/pinocchio
-          cd pinocchio && mkdir build && cd build
+          cd pinocchio
+          git checkout v3.0.0
+          mkdir build && cd build
           echo hello3
           cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DPYTHON_EXECUTABLE=/usr/bin/python3
           echo hello4
