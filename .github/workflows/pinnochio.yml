@@ -36,9 +36,14 @@ jobs:
       - name: Pinnochio setup
         run: |
           sudo apt install -y git libeigen3-dev libboost-all-dev
+          echo hello1
           git clone --recursive https://github.com/stack-of-tasks/pinocchio
+          echo hello2
           cd pinocchio && mkdir build && cd build
+          echo hello3
           cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local
+          echo hello4
           make -j4
+          echo hello5
           sudo make install
   
